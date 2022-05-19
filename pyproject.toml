@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "project-vocabulary"
+version = "1.0.0"
+description = "A simple and mini vocabulary checklist created with Pythons Flask framework."
+authors = ["Alimus Sifar <alimus.sifar@g.bracu.ac.bd>"]
+
+[tool.poetry.dependencies]
+python = "^3.8.0"
+Flask = "^2.1.2"
+Flask-SQLAlchemy = "^2.5.1"
+Flask-Login = "^0.6.1"
+PyMySQL = "^1.0.2"
+pytest = "^7.1.2"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
