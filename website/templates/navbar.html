@@ -1,0 +1,85 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-grey-25 fixed-top">
+  <!-- Container wrapper -->
+  <div class="container justify-content-between">
+    <!-- Left elements -->
+    <!-- Navbar brand -->
+    <div class="d-flex">
+      <a href="{{ url_for('views.home') }}" class="navbar-brand mt-2 mt-lg-0 align-items-baseline fw-bold">
+        <img src="{{ url_for('static', filename='./images/logo-brand.png') }}" alt="Logo" height="30" />O C A B
+        S
+      </a>
+    </div>
+    <!-- Left elements -->
+
+    <!-- Center elements -->
+    <div class="navbar-nav flex-row d-none d-md-flex">
+      <!-- Toggle button -->
+      <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbar-contents"
+        aria-controls="navbar-contents" aria-expanded="false" aria-label="Toggle navbar">
+        <i class="fas fa-bars fa-xl"></i>
+      </button>
+
+      <!-- Search box -->
+      <ul class="navbar-nav flex-row d-none d-md-flex">
+        <form class="input-group w-auto">
+          <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
+            aria-describedby="search-addon" disabled />
+          <span class="input-group-text border-0" id="search-addon">
+            <button type="submit" class="btn btn-sm text-white" formaction="" disabled>
+              <i class="fas fa-search"></i>
+            </button>
+          </span>
+        </form>
+      </ul>
+
+      <!-- Collapsible wrapper -->
+      <div class="collapse navbar-collapse" id="navbar-contents">
+        <!-- Left links -->
+        <!-- <div class="nav-link text-light">Link 1</div>
+            <div class="nav-link text-light">Link 2</div>
+            <div class="nav-link text-light">Link 3</div> -->
+      </div>
+      <!-- Collapsible wrapper -->
+    </div>
+    <!-- Center elements -->
+
+    <!-- Right elements -->
+    <ul class="navbar-nav flex-row">
+      <li class="nav-item dropdown me-3 me-lg-1 d-flex">
+        {% if not user.is_anonymous %}
+        <a href="{{ url_for('views.profile') }}">
+          <strong class="d-none d-sm-block text-light">{{ user.username }}</strong>
+        </a>
+        {% endif %}
+        <a class="nav-link dropdown-toggle hidden-arrow d-sm-flex align-items-sm-center" id="navbarDropdownMenuLink"
+          role="button" data-mdb-toggle="dropdown" aria-expanded="false">
+          <i class="fas fa-user-circle fa-2xl text-light"></i>
+        </a>
+        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+          <!-- Button trigger modal -->
+          {% if user.is_anonymous %}
+          <li>
+            <a type="button" class="dropdown-item" data-mdb-toggle="modal" data-mdb-target="#modalLogin">Login</a>
+          </li>
+          <li>
+            <a type="button" class="dropdown-item" data-mdb-toggle="modal" data-mdb-target="#modalRegister">Register</a>
+          </li>
+          {% else %}
+          <li>
+            <a type="button" class="dropdown-item" href="{{ url_for('views.profile') }}">Profile</a>
+          </li>
+          <li>
+            <form method="post">
+              <button type="submit" class="dropdown-item" formaction="{{ url_for('auth.logout') }}">Logout</button>
+            </form>
+          </li>
+          {% endif %}
+        </ul>
+      </li>
+    </ul>
+    <!-- Right elements -->
+  </div>
+</nav>
+
+{% include "modal-login.html" %}
+{% include "modal-register.html" %}

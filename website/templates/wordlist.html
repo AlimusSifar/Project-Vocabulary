@@ -1,0 +1,93 @@
+<ol>
+  <!-- for each word in the list -->
+  <div class="accordion accordion-flush" id="accordion-wordlist">
+    {% for word in words %}
+    <li>
+      <div class="word-item pt-4 pb-0">
+        <div class="line-1">
+          <div class="d-flex align-items-baseline">
+            <div class="word">{{ word.word }}</div>
+            <div class="pos">{{ word.pos }}</div>
+          </div>
+        </div>
+        <div class="line-2">
+          <div class="accordion-item ms-auto">
+            <h2 class="accordion-header" id="accordion-heading-meaning">
+              <button class="accordion-button collapsed bg-transparent py-2" type="button" data-mdb-toggle="collapse"
+                data-mdb-target="#meaning{{ word.id }}-form-collapse" aria-expanded="false"
+                aria-controls="meaning{{ word.id }}-form-collapse" title="Add meaning">
+                <h5>Meaning</h5>
+              </button>
+            </h2>
+            <div id="meaning{{ word.id }}-form-collapse" class="accordion-collapse collapse"
+              aria-labelledby="accordion-heading-meaning" data-mdb-parent="#accordion-wordlist">
+              <div class="accordion-body w-80">
+                {% if user.is_anonymous %}
+                <button type="button" class="btn btn-sm btn-primary" data-mdb-toggle="modal"
+                  data-mdb-target="#modalLogin">Login</button>
+                <button type="button" class="btn btn-sm btn-primary" data-mdb-toggle="modal"
+                  data-mdb-target="#modalRegister">Register</button>
+                {% else %}
+                {% include "form-meaning.html" %}
+                {% endif %}
+              </div>
+            </div>
+          </div>
+          <div class="meaning-list ps-3">
+            <!-- for each meaning in the list -->
+            {% for meaning in word.meanings %}
+            <div class="meaning-item">
+              <div class="d-flex align-items-baseline">
+                <div class="meaning">{{ meaning.meaning }}</div>
+                <div class="source">{{ meaning.source }}</div>
+              </div>
+            </div>
+            {% endfor %}
+            <!-- end for -->
+          </div>
+        </div>
+        <div class="line-3">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="accordion-heading-example">
+              <button class="accordion-button collapsed bg-transparent py-2" type="button" data-mdb-toggle="collapse"
+                data-mdb-target="#example{{ word.id }}-form-collapse" aria-expanded="false"
+                aria-controls="example{{ word.id }}-form-collapse" title="Add example">
+                <h5>Example</h5>
+              </button>
+            </h2>
+            <div id="example{{ word.id }}-form-collapse" class="accordion-collapse collapse"
+              aria-labelledby="accordion-heading-example" data-mdb-parent="#accordion-wordlist">
+              <div class="accordion-body w-80">
+                {% if user.is_anonymous %}
+                <button type="button" class="btn btn-sm btn-primary" data-mdb-toggle="modal"
+                  data-mdb-target="#modalLogin">Login</button>
+                <button type="button" class="btn btn-sm btn-primary" data-mdb-toggle="modal"
+                  data-mdb-target="#modalRegister">Register</button>
+                {% else %}
+                {% include "form-example.html" %}
+                {% endif %}
+              </div>
+            </div>
+          </div>
+          <ul>
+            <!-- for each example in the list -->
+            {% for example in word.examples %}
+            <li>
+              <div class="example-item ps-3">
+                <div class="d-flex align-items-baseline">
+                  <div class="example">{{ example.example }}</div>
+                  <div class="user" title="{{ example.user.email }}">{{
+                    example.user.username }}</div>
+                </div>
+              </div>
+            </li>
+            {% endfor %}
+            <!-- end for -->
+          </ul>
+        </div>
+      </div>
+    </li>
+    {% endfor %}
+  </div>
+  <!-- end for -->
+</ol>

@@ -1,0 +1,23 @@
+<div class="meaning-form">
+  <form method="post">
+    <div class="row align-items-center">
+      <div class="col">
+        <div class="form-outline">
+          <input class="form-control" type="text" name="meaning" id="meaning-meaning" maxlength="150" required>
+          <label class="form-label" for="example-example">Meaning</label>
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-outline">
+          <input class="form-control" type="text" name="source" id="meaning-source" placeholder="Source" maxlength="50"
+            required>
+          <label class="form-label" for="example-example">Source</label>
+        </div>
+      </div>
+      <input type="number" name="word_id" id="meaning-word_id" value="{{ word.id }}" hidden>
+      <div class="col">
+        <button class="btn btn-sm btn-dark" type="submit" formaction="{{ url_for('forms.add_meaning') }}">Add</button>
+      </div>
+    </div>
+  </form>
+</div>

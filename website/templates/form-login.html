@@ -1,0 +1,22 @@
+<div class="login-form">
+  <form method="post">
+    <div class="modal-body d-flex flex-column align-items-center">
+      <h1 class="modal-title mb-4" id="modalLogin">Login</h1>
+      <div class="form-outline w-80 mb-4">
+        <input class="form-control form-control-lg" type="email" name="email" id="login-email" maxlength="128"
+          placeholder="username@domain.com" required>
+        <label class="form-label" for="login-email">Email</label>
+      </div>
+      <div class="form-outline w-80 mb-4">
+        <input class="form-control form-control-lg" type="password" name="password" id="login-password" maxlength="128"
+          required>
+        <label class="form-label" for="login-password">Password</label>
+      </div>
+      <button type="submit" class="btn btn-primary mb-4" formaction="{{ url_for('auth.login') }}">Login</button>
+      <div class="mb-4">
+        <p>Not a member? <a type="button" href="" data-mdb-toggle="modal" data-mdb-target="#modalRegister">Register</a>
+        </p>
+      </div>
+    </div>
+  </form>
+</div>

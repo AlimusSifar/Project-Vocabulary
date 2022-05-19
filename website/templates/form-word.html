@@ -1,0 +1,24 @@
+<div class="word-form">
+  <form method="post">
+    <div class="modal-body d-flex flex-column align-items-center">
+      <h1 class="modal-title mb-4" id="modalAddWordLabel">New Word</h1>
+      <div class="form-outline w-80 mb-4">
+        <input class="form-control form-control-lg" type="text" name="word" id="word-word" maxlength="50" required>
+        <label class="form-label" for="word-word">Word</label>
+      </div>
+      <select class="select form-control form-control-lg w-80 mb-4" name="pos" id="word-pos" required>
+        <option value="" selected disabled>Parts of Speech</option>
+        <option value="noun">Noun</option>
+        <option value="pronoun">Pronoun</option>
+        <option value="adjective">Adjective</option>
+        <option value="verb">Verb</option>
+        <option value="adverb">Adverb</option>
+        <option value="preposition">Preposition</option>
+        <option value="conjunction">Conjunction</option>
+        <option value="interjection">Interjection</option>
+        <option value="determiner">Determiner</option>
+      </select>
+      <button type="submit" class="btn btn-primary mb-4" formaction="{{ url_for('forms.add_word') }}">Add</button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="{{ url_for('static', filename='./images/favicon.png') }}" type="image/png">
+
+  <!-- stylesheet/css -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='./assets/css/myStyle.css') }}">
+  <!-- MDB -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.11.0/mdb.min.css" />
+
+  <!-- Google Fonts -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+Bengali&display=swap">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+
+  <title>{% block title %} {% endblock %} | Vocabs</title>
+</head>
+
+<body>
+  <!-- Header -->
+  {% include "header.html" %}
+  <!-- Alerts -->
+  <section class="mt-5 pt-2">
+    {% include "alerts.html" %}
+    <!-- Body -->
+    {% block body %} {% endblock %}
+  </section>
+  <!-- Footer -->
+  {% include "footer.html" %}
+
+  <!-- scripts/js -->
+  <script src="{{ url_for('static', filename='./assets/js/myScript.js') }}"></script>
+  <!-- MDB -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.11.0/mdb.min.js"></script>
+
+</body>
+
+</html>

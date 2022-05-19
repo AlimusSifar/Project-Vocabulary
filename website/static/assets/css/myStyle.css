@@ -1,0 +1,113 @@
+body {
+    padding: 25px;
+}
+
+hr {
+    width: 99%;
+}
+
+.fa-2_25x {
+    font-size: 2.25em;
+}
+
+.fa-2_5x {
+    font-size: 2.25em;
+}
+
+.bg-grey-25 {
+    background-color: #404040;
+}
+
+.bg-grey-50 {
+    background-color: #808080;
+}
+
+.bg-grey-75 {
+    background-color: #bfbfbf;
+}
+
+.text-grey-25 {
+    color: #404040;
+}
+
+.text-grey-50 {
+    color: #808080;
+}
+
+.text-grey-75 {
+    color: #bfbfbf;
+}
+
+.word {
+    padding: 0 5px;
+    display: block;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.pos {
+    padding: 0 5px;
+    font-style: italic;
+}
+
+.meaning-item {
+    padding: 5px 0px;
+    align-items: flex-end;
+}
+
+.meaning {
+    padding: 0 5px;
+}
+
+.source {
+    padding: 0 5px;
+    font-style: italic;
+    font-size: 0.75em;
+    font-weight: bold;
+}
+
+.example-item {
+    align-items: flex-end;
+}
+
+.example {
+    padding: 0 5px;
+}
+
+.user {
+    padding: 0 5px;
+    font-style: italic;
+    font-size: 0.75em;
+    font-weight: bold;
+}
+
+.accordion-button:not(.collapsed) {
+    color: inherit !important;
+}
+
+.accordion-button:not(.collapsed):after {
+    background-image: url("../../images/512px-cross.png") !important;
+}
+
+.accordion-button:after {
+    background-image: url("../../images/512px-plus.png") !important;
+}
+
+.fixed-13-87 {
+    position: fixed;
+    top: 13%;
+    left: 87.5%;
+}
+
+.w-80 {
+    width: 80% !important;
+}
+
+::marker {
+    font-weight: bold;
+    font-size: 1.25rem;
+}
+
+.bangla {
+    font-family: 'Noto Sans Bengali', sans-serif;
+}

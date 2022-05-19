@@ -1,0 +1,16 @@
+<div class="example-form">
+  <form method="post">
+    <div class="row align-items-center">
+      <div class="col">
+        <div class="form-outline">
+          <input class="form-control" type="text" name="example" id="example-example" maxlength="256" required>
+          <label class="form-label" for="example-example">Example</label>
+        </div>
+      </div>
+      <input type="number" name="word_id" id="example-word_id" value="{{ word.id }}" hidden>
+      <div class="col">
+        <button class="btn btn-sm btn-dark" type="submit" formaction="{{ url_for('forms.add_example') }}">Add</button>
+      </div>
+    </div>
+  </form>
+</div>

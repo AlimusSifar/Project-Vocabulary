@@ -1,0 +1,28 @@
+{% extends "base.html" %} {% block title %} Home {% endblock %}
+{% block body %}
+
+<div class="container">
+
+  <div class="d-flex justify-content-center">
+    <!-- <h1 class="bangla">বোকাবুলারি</h1> -->
+  </div>
+
+  <!-- Show word list -->
+  <div class="word-list w-100">
+    {% include "wordlist.html" %}
+  </div>
+
+  {% if not user.is_anonymous %}
+  <!-- Button trigger modal -->
+  <div class="fixed-13-87">
+    <a type="button" data-mdb-toggle="modal" data-mdb-target="#modalAddWord" title="Add word">
+      <img src="{{ url_for('static', filename='./images/512px-plus.png') }}" alt="Logo" height="30" />
+    </a>
+  </div>
+
+  {% endif %}
+</div>
+
+{% include "modal-word.html" %}
+
+{% endblock %}
