@@ -16,11 +16,11 @@ def home():
 @views.route('/about', methods=['GET'])
 def about():
     data = {}
-    return '<h1>About</h1>'
+    return '<h1>About</h1><hr><p>coming soon...</p>'
 
 
 @views.route('/profile', methods=['GET'])
 @login_required
 def profile():
     data = {}
-    return '<h1>Profile</h1>'
+    return '<h1>Profile</h1><hr><p>coming soon...</p>'

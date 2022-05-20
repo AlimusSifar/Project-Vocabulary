@@ -141,3 +141,6 @@ log/
 
 # replit config files
 .replit
+
+# vscode settings
+.vscode/

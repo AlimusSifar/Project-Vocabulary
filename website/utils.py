@@ -3,14 +3,14 @@ import datetime as dt
 import re
 
 
-def salt_generator(text):
+def salt_generator(text, length=10):
     sref = (ord(ch) for ch in text)
     rd.seed(sum(sref))
     chars = ('abcdefghijklmnopqrstuvwxyz'
              'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
              '0123456789'
              '!@#$%^&*()-_=+')
-    return ''.join((rd.choice(chars) for _ in range(10)))
+    return ''.join((rd.choice(chars) for _ in range(length)))
 
 
 def titlecase(string):

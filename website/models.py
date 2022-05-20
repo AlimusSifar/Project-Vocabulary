@@ -31,6 +31,9 @@ class Word(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     word = db.Column(db.String(50), nullable=False)
     pos = db.Column(db.String(16), nullable=False)
+    user_id = db.Column(db.String(128), db.ForeignKey('user.email'), nullable=False)
+
+    user = db.relationship('User', backref='words', lazy=True)
 
     def __repr__(self):
         return f"<{type(self).__name__} {self.word}, {self.pos}>"
@@ -40,8 +43,10 @@ class Meaning(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     meaning = db.Column(db.String(150), nullable=False)
     source = db.Column(db.String(50), nullable=False)
+    user_id = db.Column(db.String(128), db.ForeignKey('user.email'), nullable=False)
     word_id = db.Column(db.Integer, db.ForeignKey('word.id'), nullable=False)
 
+    user = db.relationship('User', backref='meanings', lazy=True)
     word = db.relationship("Word", backref="meanings", lazy=True)
 
     def __repr__(self):
